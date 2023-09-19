@@ -1,22 +1,20 @@
 #include "main.h"
-<<<<<<< HEAD
 
  void print_buffer(char buffer[], int *buff_int);
 
 /**
- * _printf - function that produces output 7according to a format
+ * _printf - function that produces output according to a format
  * @format: format
  * Return: printed chars
-=======
+ */
+
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
- * Return: the length of the string.
->>>>>>> cb2d2f3debdedd00e59289bdd92e1fb0e5d43a63
+ * Return: the length of the string
  */
 int _printf(const char * const format, ...)
 {
-<<<<<<< HEAD
 	int r, printed = 0, printed_chars = 0;
 	int flags, size, width, precision, buff_ind = 0;
 	va_list list;
@@ -49,7 +47,6 @@ int _printf(const char * const format, ...)
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
-=======
 	convert_match m[] = {
 		{"%s", printf_string}, {"%c", printf_char},
 		{"%%", printf_37},
@@ -78,14 +75,12 @@ Here:
 				i = i + 2;
 				goto Here;
 			}
-			j--;
->>>>>>> cb2d2f3debdedd00e59289bdd92e1fb0e5d43a63
+			j++;
 		}
 		_putchar(format[i]);
 		len++;
 		i++;
 	}
-<<<<<<< HEAD
 
 	print_buffer(buffer, &buff_ind);
 
@@ -95,7 +90,7 @@ Here:
 }
 
 /**
- * print_buffer - prints the contents of the buffer 
+ * print_buffer - prints the contents of the buffer
  * @buffer: chars array
  * @buff_ind: index to add next char, repr length
  */
@@ -105,8 +100,6 @@ void print_buffer(char buffer[], int *buff_ind)
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
-=======
 	va_end(args);
 	return (len);
->>>>>>> cb2d2f3debdedd00e59289bdd92e1fb0e5d43a63
 }
