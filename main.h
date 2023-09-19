@@ -1,8 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
+
 #define BUFF_SIZE 1024
 #define UNUSED(X) (void)(x)
 
@@ -22,7 +25,7 @@
  * @fmt: format
  * @fn: the function associated.
  */
-struct fmt;
+struct fmt
 {
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
