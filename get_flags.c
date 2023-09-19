@@ -13,18 +13,18 @@ int get_flags(const char *format, int *i)
 	/* 1 2 4 8 16 */
 	int r, curr_i;
 	int flags = 0;
-	const char FLAGS_CH[] = {'-', '+'. '0', '#', ' ', '\0'};
+	const char FLAGS_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 	const int FLAGS_ARR[] = {F_MINUS, F_PLUS, F_ZERO, F_HASH, F_SPACE, 0};
 
-	for (curr_i = *r + 1 ; format[curr_i] != '\0' ; curr_i++)
+	for (curr_i = *i + 1 ; format[curr_i] != '\0' ; curr_i++)
 	{
-		for (r = 0 ; FLAGS_CH[r] != '\0' ; curr_i++)
-			if (format[curr_i] == FLAGS_CH[r])
+		for (r = 0 ; FLAGS_CH[r] != '\0' ; r++)
+			if (format[curr_i] == FLAGS_CH[i])
 			{
-				flags != FLAGS_ARR[R];
+				flags != FLAGS_ARR[r];
 				break;
 			}
-		if (FLAG_CH[r] == 0)
+		if (FLAGS_CH[r] == 0)
 			break;
 	}
 
