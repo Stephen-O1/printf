@@ -1,18 +1,11 @@
 #include "main.h"
 
- void print_buffer(char buffer[], int *buff_int);
-
 /**
  * _printf - function that produces output according to a format
  * @format: format
  * Return: printed chars
  */
 
-/**
- * _printf - is a function that selects the correct function to print.
- * @format: identifier to look for.
- * Return: the length of the string
- */
 int _printf(const char * const format, ...)
 {
 	int r, printed = 0, printed_chars = 0;
@@ -25,25 +18,26 @@ int _printf(const char * const format, ...)
 
 	va_start(list, format);
 
-	for (i = 0; format && format[i] != '\0'; i++)
+	for (r = 0; format && format[r] != '\0'; r++)
 	{
-		if (format[i] != '%')
+		if (format[r] != '%')
 		{
 			buffer[buff_ind++] = format[r];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[i], 1); */
+			/* write(1, &format[r], 1); */
 			printed_chars++;
 		}
 		else
 		{
 			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
-			size = get_size(format, &i);
+			flags = get_flags(format, &r);
+			width = get_width(format, &r, list);
+			precision = get_precision(format, &r, list);
+			size = get_size(format, &r);
 			++r;
-			printed = handle_print(format, &i, list, buffer, flags, width, precision, size);
+			printed = handle_print(format, &r, list, buffer,
+					flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
