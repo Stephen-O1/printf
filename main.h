@@ -35,13 +35,19 @@ struct fmt
 /**
  * typedef struct fmt fmt_t - struct op
  * @fmt: format
- * @fm_t: function asspciated
+ * @fm_t: function associated
  */
 typedef struct fmt fmt_t;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i);
-va_list list(char buffer[], int flags, int widrh, int precision, int size);
+int handle_print(const char *fmt, int *i,
+va_list list, char buffer[], int flags, int width, int precision, int size);
+
+/** Functions  */
+int print_char(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_string(va_list types, char buffer[], int flags, int precision, int size);
+int print_percent(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_non_printable(va_list types, char buffer[], int flags, int width, int precision, int size);
 
 /* Function to handle other specifiers*/
 int get_flags(const char *format, int *i);
@@ -69,6 +75,10 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsigned(unsigned long int num, int size);
 
+/* Function to print numbers */
+int print_int(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_binary(va_list types, char buffer[], int flags, int width, int precision, int size);
+int print_unsigned(va_list types, char buffer[], int flags, int width, int precision, int size);
 /**
  * struct format - match the conversion specifiers for printf
  * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
