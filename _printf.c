@@ -1,5 +1,6 @@
 #include "main.h"
 
+void print_buffer(chhar buffer[], int *buff_ind);
 /**
  * _printf - function that produces output according to a format
  * @format: format
@@ -62,6 +63,4 @@ void print_buffer(char buffer[], int *buff_ind)
 		write(1, &buffer[0], *buff_ind);
 
 	*buff_ind = 0;
-	va_end(args);
-	return (len);
 }

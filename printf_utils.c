@@ -36,7 +36,7 @@ long int convert_size_number(long int num, int size)
  * @size: indicates number to be typed
  * Return: casted value of number
  */
-long int convert_size_unsigned(unsigned long int num, int size)
+long int convert_size_unsignd(unsigned long int num, int size)
 {
 	if (size == S_LONG)
 		return (num);
